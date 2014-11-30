@@ -1,0 +1,111 @@
+package com.jordanlee833.FlareChat;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
+
+public class Login extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtUsername;
+	private JTextField textPort;
+	private JLabel lblPort;
+	private JLabel lbIP;
+	private JTextField textIP;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Login() {
+		try {
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		setResizable(false);
+		setTitle("FlareChat - Login");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(300, 380);
+		setLocationRelativeTo(null);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		txtUsername = new JTextField();
+		txtUsername.setBounds(25, 38, 243, 32);
+		contentPane.add(txtUsername);
+		txtUsername.setColumns(10);
+		
+		JLabel lblUsername = new JLabel("Username");
+		lblUsername.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblUsername.setBounds(109, 11, 76, 26);
+		contentPane.add(lblUsername);
+		
+		textPort = new JTextField();
+		textPort.setColumns(10);
+		textPort.setBounds(25, 221, 243, 32);
+		contentPane.add(textPort);
+		
+		lblPort = new JLabel("Port :");
+		lblPort.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblPort.setBounds(123, 194, 47, 26);
+		contentPane.add(lblPort);
+		
+		lbIP = new JLabel("IP Address :");
+		lbIP.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lbIP.setBounds(101, 103, 91, 26);
+		contentPane.add(lbIP);
+		
+		textIP = new JTextField();
+		textIP.setColumns(10);
+		textIP.setBounds(25, 129, 243, 32);
+		contentPane.add(textIP);
+		
+		JButton btnNewButton = new JButton("Login");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String name = txxtUsername.getText();
+				login();
+			}
+		});
+		btnNewButton.setBounds(74, 297, 146, 32);
+		contentPane.add(btnNewButton);
+		
+		
+	}
+	
+	private void login(String name, String address, int port) {
+		
+		
+		
+	}
+}

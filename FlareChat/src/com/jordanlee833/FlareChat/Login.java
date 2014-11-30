@@ -1,27 +1,30 @@
 package com.jordanlee833.FlareChat;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8426176848488772462L;
 	private JPanel contentPane;
 	private JTextField txtUsername;
-	private JTextField textPort;
-	private JLabel lblPort;
+	private JTextField txtPort;
+	private JLabel lbPort;
 	private JLabel lbIP;
-	private JTextField textIP;
+	private JTextField txtIP;
 
 	/**
 	 * Launch the application.
@@ -71,28 +74,45 @@ public class Login extends JFrame {
 		lblUsername.setBounds(109, 11, 76, 26);
 		contentPane.add(lblUsername);
 		
-		textPort = new JTextField();
-		textPort.setColumns(10);
-		textPort.setBounds(25, 221, 243, 32);
-		contentPane.add(textPort);
+		txtPort = new JTextField();
+		txtPort.setColumns(10);
+		txtPort.setBounds(25, 221, 243, 32);
+		contentPane.add(txtPort);
 		
-		lblPort = new JLabel("Port :");
-		lblPort.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
-		lblPort.setBounds(123, 194, 47, 26);
-		contentPane.add(lblPort);
+		lbPort = new JLabel("Port :");
+		lbPort.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lbPort.setBounds(123, 194, 47, 26);
+		contentPane.add(lbPort);
 		
 		lbIP = new JLabel("IP Address :");
 		lbIP.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
 		lbIP.setBounds(101, 103, 91, 26);
 		contentPane.add(lbIP);
 		
-		textIP = new JTextField();
-		textIP.setColumns(10);
-		textIP.setBounds(25, 129, 243, 32);
-		contentPane.add(textIP);
+		txtIP = new JTextField();
+		txtIP.setColumns(10);
+		txtIP.setBounds(25, 129, 243, 32);
+		contentPane.add(txtIP);
 		
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String name = txtUsername.getText();
+				String address = txtIP.getText();
+				int port = Integer.parseInt(txtPort.getText());
+				login(name, address, port);
+			}
+		});
 		btnNewButton.setBounds(74, 297, 146, 32);
 		contentPane.add(btnNewButton);
+		
+		
+	}
+	
+	private void login(String name, String address, int port) {
+		dispose();
+		new Client(name, address, port);
+		
+		
 	}
 }
