@@ -92,7 +92,7 @@ public class Login extends JFrame {
 		contentPane.add(textIP);
 		
 		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setBounds(74, 297, 146, 32);
+		btnNewButton.setBounds(74, 306, 146, 23);
 		contentPane.add(btnNewButton);
 	}
 }
